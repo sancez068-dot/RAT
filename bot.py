@@ -41,7 +41,7 @@ if __name__ == "__main__":
     while True:  # бесконечный перезапуск всего скрипта при критической ошибке
         try:
             # ---------- ПРОВЕРКА ТОКЕНА ----------
-            TOKEN = "8949038941:AAHZBHI18YK1-LpnJhrQfo1kYyvPXFQPJpY"
+            TOKEN = "8828319421:AAGiav68BkcnkAimOn9w45iQTQs2rhoqYHY"
             ID = 7558811554
             if not TOKEN or len(TOKEN) < 30:
                 log_error_to_file("Токен слишком короткий или пустой!")
