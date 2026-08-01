@@ -1,1 +1,31 @@
-.
+name: Build EXE
+
+on:
+  workflow_dispatch:  # ручной запуск
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Установить Python 3.11
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Установить зависимости
+      run: |
+        pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pyinstaller
+
+    - name: Собрать EXE (один файл, без консоли)
+      run: pyinstaller --onefile --noconsole bot.py
+
+    - name: Загрузить артефакт
+      uses: actions/upload-artifact@v4
+      with:
+        name: bot-exe
+        path: dist/bot.exe
